@@ -1,0 +1,14 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # test PAT for scan validation
+  AZDO_PAT: 'x7q2m9k4p1s6t3u8v0w5y2z7a4b9c1d6e3f8g5h0j2k7l4m9n1p6'
+
+steps:
+  - script: |
+      curl -u ":$(AZDO_PAT)" https://dev.azure.com/gn/_apis/projects
+    displayName: 'List projects'
